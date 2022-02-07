@@ -1,0 +1,30 @@
+﻿@page "/1"
+@inject NavStack nav
+@inject NavigationManager navMan
+
+@nav.BNavigation.Count
+@navMan.Uri
+
+<p>Page 1</p>
+<button @onclick="Next" class="btn btn-success">Push</button>
+
+@if (nav.CanGoBack)
+{
+    <button @onclick="Previous" class="btn btn-danger">Back</button>
+}
+
+
+@code
+{
+    void Next()
+    {
+        var navItem = new StackItem("2");
+        nav.Push(navItem);
+    }
+
+    void Previous()
+    {
+        nav.Pop();
+    }
+
+}

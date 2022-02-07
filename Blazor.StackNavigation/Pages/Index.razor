@@ -1,0 +1,6 @@
+﻿@page "/"
+@inject NavigationManager navMan
+
+<button @onclick="@(() => navMan.NavigateTo("1"))" class="btn btn-success">
+    Start Test
+</button>
